@@ -1,1 +1,4 @@
 /node/**/node_modules
+/node/**/distribution
+/node/**/package-lock.json
+/node/**/.vscode

@@ -1,15 +1,21 @@
 {
   "name": "@abdulbiqbal/abi-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ABi Utilities",
-  "main": "index.js",
+  "main": "./distribution/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel index.js --presets babel-preset-es2015 --out-dir distribution",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/abdulbiqbal/javascript/tree/master/node/abi-utils"
   },
   "author": "Abdul Basit Iqbal",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
 }
