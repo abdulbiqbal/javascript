@@ -12,7 +12,13 @@ app.get('/a', function(req, res){
 });
 
 app.get('/*', function(req, res){
-   res.send("Hello world! B");
+    console.log(req.originalUrl);
+    console.log(req.query.id);
+    setTimeout(function(){
+        
+        res.send(new Date());
+    },5000);
+   
 });
 
 app.listen(3000);
