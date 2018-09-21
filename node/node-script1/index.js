@@ -1,5 +1,8 @@
 import * as utils from '@abdulbiqbal/abi-utils'
-//var utils = require("@abdulbiqbal/abi-utils")
+
+
+
+utils.convertCsvToJson('file.csv', console.error, ['index','value', 'zxc']);
 console.log("Hello World")
 
-console.log(utils.add(1,2));
+console.error(utils.add(1,2));

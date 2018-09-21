@@ -1,6 +1,6 @@
 {
   "name": "@abdulbiqbal/abi-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ABi Utilities",
   "main": "./distribution/index.js",
   "scripts": {

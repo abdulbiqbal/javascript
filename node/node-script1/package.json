@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@abdulbiqbal/abi-utils": "^1.0.1"
+    "@abdulbiqbal/abi-utils": "file:../abi-utils",
+    "//": [
+      "@abdulbiqbal/abi-utils",
+      "^1.0.1"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
