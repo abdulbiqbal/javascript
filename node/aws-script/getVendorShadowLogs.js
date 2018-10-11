@@ -2,24 +2,31 @@ var AWS = require('aws-sdk');
 AWS.config.update({ region: 'us-east-1' });
 var dynamodb = new AWS.DynamoDB();
 
+
+function generateExpressionAttributeValueList(AttributeValuesObject, valueList) {
+    var valueVars = [];
+    var index = 0;
+    valueList.forEach(function(value) {
+        index++;
+        var entry = {S: value};
+        var valueKey = ":vendor"+index;
+        AttributeValuesObject[valueKey.toString()] = entry;
+        valueVars.push(valueKey);
+      });
+      return valueVars;
+}
+
 function scan(ops) {
     var vendors = [
         'M12GUKWG9KL647','M14T8IBHHVMWX2','M1AGII9EV2F3Y2','M1BKNR6QCKC7S','M2JRRKPU730GGN','MB58X28QP9H5U','MCYZDPAAS2A4S','MJ2K5JK3E3F0V','MMUJ6H3XFA04W','MPJ3X1AAZLVVE'
     ];
-    var index = 0;
+    
     var AttributeValuesObject = {
         ":v1": {
             S: "2018-10-09T00:00:00.000Z"
         }
     };
-    var vendorVars = [];
-    vendors.forEach(function(value) {
-        index++;
-        var entry = {S: value};
-        var vendorKey = ":vendor"+index;
-        AttributeValuesObject[vendorKey.toString()] = entry;
-        vendorVars.push(vendorKey);
-      });
+    var vendorVars = generateExpressionAttributeValueList(AttributeValuesObject, vendors);
     var params = {
         ExpressionAttributeNames: {
             '#t': 'time',
